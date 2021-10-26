@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Platforms.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Move"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SmallPlatform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 400, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Move_Small" type="Node2D"]
+
+[node name="SmallPlatform" type="KinematicBody2D" parent="."]
+position = Vector2( 239.779, 0 )
+
+[node name="Sprite" type="Sprite" parent="SmallPlatform"]
+texture = ExtResource( 1 )
+vframes = 5
+frame = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallPlatform"]
+polygon = PoolVector2Array( -26.8919, 6.39173, -26.8919, 20.9595, -10.8376, 37.3111, 10.2708, 37.0138, 27.5143, 20.6622, 27.8116, 6.68903 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Move"
+playback_process_mode = 0
+anims/Move = SubResource( 1 )

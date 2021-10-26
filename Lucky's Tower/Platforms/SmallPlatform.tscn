@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Platforms.png" type="Texture" id=1]
+
+[node name="SmallPlatform" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 5
+frame = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -26.8919, 6.39173, -26.8919, 20.9595, -10.8376, 37.3111, 10.2708, 37.0138, 27.5143, 20.6622, 27.8116, 6.68903 )
